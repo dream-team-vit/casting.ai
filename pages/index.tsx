@@ -1,7 +1,5 @@
 import Head from 'next/head'
 import HeaderSection from '@/components/Header'
-import InputSection from '@/components/Input'
-import PredictedScore from '@/components/Score'
 import HomeComponent from '@/components/Home'
 
 

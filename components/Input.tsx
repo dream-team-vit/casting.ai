@@ -1,16 +1,10 @@
 import { 
-    ActionIcon,
-    Box,
     Button,
     Group,
     NativeSelect,
-    NumberInput,
-    NumberInputHandlers, 
-    rem, 
-    Text,
+    NumberInput
 } from '@mantine/core';
 
-import { useState, useRef } from 'react';
 import { teamData, venueData } from '@/utils/contents';
 
 export default function InputSection({ openPredictScore, openWinPercent }: any){

@@ -1,4 +1,4 @@
-import { ActionIcon, Box, Header, Image, Text } from "@mantine/core"
+import { Box, Header, Image, Text } from "@mantine/core"
 import { useRouter } from "next/router";
 
 export default function HeaderSection(){
