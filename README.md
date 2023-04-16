@@ -29,7 +29,7 @@
         Machine Learning Algorithms
         </li>
 <h3>Screenshots:</h3>
-<img src = "public/localhost_3001_ (1).png">
+<img src = "app/public/localhost_3001_ (1).png">
 
 <h3>Installition:</h3>
       <p>To run Casting.ai locally, follow these steps:</p>
