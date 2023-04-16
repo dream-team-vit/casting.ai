@@ -13,8 +13,9 @@
         Live Scores: Users can view live scores of ongoing cricket matches and get predictions for those matches as well.
         </li>
         <li>
-        User Authentication: Users can sign up and log in to the website to save their favorite teams and receive personalized predictions.
+        User Authentication: Users can sign up and log in to the website to save their favorite teams and receive     personalized predictions.
         </li>
+
 <h3>Technologies Used</h3>
       <p>Casting.ai is built with the following technologies:</p>
       <list>
@@ -27,6 +28,24 @@
         <li>
         Machine Learning Algorithms
         </li>
+<h3>Screenshots:</h3>
+<img src = "Casting-ai\public\Screenshots\localhost_3001_ (1).png">
+
+<h3>Installition:</h3>
+      <p>To run Casting.ai locally, follow these steps:</p>
+      <list>
+        <li>
+        Clone the repository: git clone https://github.com/<username>/<repository-name>.git
+        </li>
+        <li>
+        Install dependencies: npm install
+        </li>
+        <li>
+        Start the development server: npm run dev
+        </li>
+<h3>License<h3>
+<p>Casting.ai is licensed under the MIT License. Feel free to use and modify the code as per your requirement.</p>
+
 </body>
        
     
