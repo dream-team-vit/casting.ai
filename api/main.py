@@ -52,15 +52,31 @@ SCORE_PREDICTION_MODEL = pickle.load(open(os.path.join(os.getcwd(),'models','Sco
 @app.post("/prediction")
 async def prediction(body: PredictionRequestBody):
     required_runrate = (body.run_left/body.ball_left)*6
-    i=0.3*PREDICTION_MODEL_2.predict_proba([[body.batting_team, body.bowling_team, body.venue, body.run_left, body.ball_left, body.wicket_left]])+0.7*PREDICTION_MODEL_4.predict_proba([[body.batting_team, body.bowling_team, body.venue, body.run_left, body.ball_left, body.wicket_left]])
-    j=0.3*PREDICTION_MODEL_1.predict_proba([[body.batting_team, body.bowling_team, body.venue, required_runrate, body.current_runrate]])+0.7*PREDICTION_MODEL_3.predict_proba([[body.batting_team, body.bowling_team, body.venue, required_runrate, body.current_runrate]])
-    final = 0.6*j+0.4*i
-    final_prediction = final*100
-    win_prediction = {
-		'batting_team' : final_prediction[0][0],
-		'bowling_team' : final_prediction[0][1],
-	}
-    return win_prediction
+    if required_runrate  >= 36.0:
+        return {
+		'batting_team' : 0.1,
+		'bowling_team' : 99.9,
+		}
+    elif body.wicket_left == 0:
+        return {
+			'batting_team' : 0.1,
+			'bowling_team' : 99.9,
+		}
+    elif body.run_left == 0:
+        return {
+			'batting_team' : 100,
+			'bowling_team' : 0,
+		}
+    else:
+        i=0.3*PREDICTION_MODEL_2.predict_proba([[body.batting_team, body.bowling_team, body.venue, body.run_left, body.ball_left, body.wicket_left]])+0.7*PREDICTION_MODEL_4.predict_proba([[body.batting_team, body.bowling_team, body.venue, body.run_left, body.ball_left, body.wicket_left]])
+        j=0.3*PREDICTION_MODEL_1.predict_proba([[body.batting_team, body.bowling_team, body.venue, required_runrate, body.current_runrate]])+0.7*PREDICTION_MODEL_3.predict_proba([[body.batting_team, body.bowling_team, body.venue, required_runrate, body.current_runrate]])
+        final = 0.6*j+0.4*i
+        final_prediction = final*100
+        win_prediction = {
+			'batting_team' : final_prediction[0][1],
+			'bowling_team' : final_prediction[0][0],
+		}
+        return win_prediction
 
 
 
