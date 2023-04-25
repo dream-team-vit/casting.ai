@@ -9,8 +9,7 @@ app = FastAPI()
 
 # Configure CORS middleware
 origins = [
-    "http://localhost",
-    "http://localhost:3000", # replace with your Next.js app's domain
+    "*"
 ]
 
 app.add_middleware(
