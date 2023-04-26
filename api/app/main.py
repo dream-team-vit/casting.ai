@@ -9,7 +9,9 @@ app = FastAPI()
 
 # Configure CORS middleware
 origins = [
-    "*"
+    "http://localhost:3000",
+    "http://localhost",
+	os.getenv("DEPLOYED_WEB_APP")
 ]
 
 app.add_middleware(
